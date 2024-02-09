@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "413283853726",
+    "project_id": "grahagyana-15a3d",
+    "storage_bucket": "grahagyana-15a3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413283853726:android:355991dcfe78bb2aaa628f",
+        "android_client_info": {
+          "package_name": "com.ksbm.grahagyana"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8qXALhgpMLNZQKIzguiyu3ATdwrwQwKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

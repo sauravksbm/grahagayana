@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>466653083521-a50ji7b1p9hj6ps3k9f616ducatlup03.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.466653083521-a50ji7b1p9hj6ps3k9f616ducatlup03</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>466653083521-415miq2tc43l55pmltid5l0v3hp0d4sf.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD8c6QxbFdL0zwNxTdTxLt0HxbY4gCx97g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>466653083521</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ksbm.astroking.ios</string>
+	<key>PROJECT_ID</key>
+	<string>astroking-b379e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>astroking-b379e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:466653083521:ios:725761a577903e279e9a80</string>
+	<key>DATABASE_URL</key>
+	<string>https://astroking-b379e-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
