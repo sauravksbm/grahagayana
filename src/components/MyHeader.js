@@ -165,9 +165,6 @@ const MyHeader = ({navigation, title, statusBar, socialIcons = false,download = 
         </View>
       </View>
      
- 
-
-
     </SafeAreaView>
   );
 };
