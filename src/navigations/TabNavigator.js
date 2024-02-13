@@ -102,12 +102,12 @@ function MyTabBar({state, descriptors, navigation}) {
               </View>
             ) : label == 'astroLive' ? (
               <Image
-                source={require('../assets/images/icon/blog.png')}
+                source={require('../assets/images/icon/blog2.png')}
                 style={{width: width * 0.08, height: width * 0.08,tintColor: isFocused ? colors.background_theme7:colors.background_theme2}}
               />
             ) : (
               <Image
-                source={require('../assets/images/icon/mall.png')}
+                source={require('../assets/images/icon/profile2.png')}
                 style={{width: width * 0.08, height: width * 0.08,tintColor: isFocused ? colors.background_theme7:colors.background_theme2,resizeMode:'contain'}}
               />)
             }
@@ -127,7 +127,7 @@ function MyTabBar({state, descriptors, navigation}) {
                   ? t("chat")
                   : label == 'astroLive'
                   ? 'Blogs'
-                  : 'Mall'}
+                  : 'Profile'}
               </Text>
               ) : null}
           </TouchableOpacity>

@@ -175,7 +175,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('D:/GrahGyana_latest27-Jan-24/android/astrokunj.keystore')
+            storeFile file('F:/Saurav/grahagayana/android/astrokunj.keystore')
             storePassword 'astrokunj@123'
             keyAlias 'key'
             keyPassword 'astrokunj@123'
