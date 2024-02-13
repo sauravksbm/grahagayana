@@ -197,7 +197,7 @@ export const colors = {
   background_theme5: '#caf0f8',
   background_theme6:'#48cae4',
   background_theme7: '#219ebc',
-  side_bar_background:"#a9c9d6"
+  side_bar_background:"#ebf8fe"
 };
 
 export const fonts = {

@@ -188,8 +188,8 @@ function CustomDrawerContent(props) {
 
 
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ height: 20 }} />
+    <View style={{ flex: 1, padding: 10, backgroundColor: colors.white_color }}>
+      <View style={{ height: 20, backgroundColor: colors.white_color }} />
       <DrawerContentScrollView {...props.props1}>
         <View
           style={{
@@ -207,7 +207,7 @@ function CustomDrawerContent(props) {
             shadowRadius: 4,
             elevation: 5,
             borderBottomWidth: 0.2,
-            marginBottom: 5
+            marginBottom: 15,
           }}>
           <Image
             source={{
@@ -216,9 +216,7 @@ function CustomDrawerContent(props) {
             style={{
               width: width * 0.12,
               height: width * 0.12,
-              borderWidth: 1,
               borderColor: colors.white_color,
-              borderRadius: (width * 0.25) / 2,
             }}
           />
           <View style={{
@@ -247,7 +245,7 @@ function CustomDrawerContent(props) {
 
           </View>
           <TouchableOpacity
-            // onPress={() => navigation.navigate('customerAccount')}
+            onPress={() => navigation.navigate('wallet')}
             style={{
               height: 30,
               borderRadius: 13,
@@ -269,132 +267,163 @@ function CustomDrawerContent(props) {
 
         </View>
         <View style={{
-          width: width,
           backgroundColor: colors.white_color,
-          // margin:10s
         }}>
           <View>
-
-
-            <View style={{ flexDirection: 'row' }}>
-              <TouchableOpacity onPress={() => navigation.navigate('wallet')} style={[styles.buttonContainer2]}>
-                <Image
-                  source={require('../assets/images/menu/wallet.png')}
-                  style={styles.buttonImage}
-                />
-                <Text style={styles.buttonText2}>{t("wallet_balance")}  ₹ {props.props.wallet}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('wallet')} style={styles.buttonContainer2}>
-                <Image
-                  source={require('../assets/images/menu/wallet.png')}
-                  style={styles.buttonImage}
-                />
-                <Text style={styles.buttonText2}>{t("wallet_balance")}  ₹ {props.props.wallet}</Text>
-              </TouchableOpacity>
+            <View style={{ flexDirection: 'row', justifyContent: "space-around", marginVertical: 10 }}>
+              <View style={styles.buttonWrapper}>
+                <TouchableOpacity onPress={() => navigation.navigate('wallet')} style={styles.buttonContainer2}>
+                  <Image
+                    source={require('../assets/images/sidemenu/a1.png')}
+                    style={styles.buttonImage}
+                  />
+                  <Text style={[styles.buttonText2, { marginHorizontal: 20 }]}>{t("wallet")}</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.buttonWrapper}>
+                <TouchableOpacity onPress={() => navigation.navigate('selectSign')} style={styles.buttonContainer2}>
+                  <Image
+                    source={require('../assets/images/sidemenu/a2.png')}
+                    style={styles.buttonImage}
+                  />
+                  <Text style={styles.buttonText2}>{t("horoscope")}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-            <View style={{ flexDirection: 'row' }}>
-              <TouchableOpacity onPress={() => navigation.navigate('wallet')} style={styles.buttonContainer2}>
-                <Image
-                  source={require('../assets/images/menu/wallet.png')}
-                  style={styles.buttonImage}
-                />
-                <Text style={styles.buttonText2}>{t("wallet_balance")}  ₹ {props.props.wallet}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('wallet')} style={styles.buttonContainer2}>
-                <Image
-                  source={require('../assets/images/menu/wallet.png')}
-                  style={styles.buttonImage}
-                />
-                <Text style={styles.buttonText2}>{t("wallet_balance")}  ₹ {props.props.wallet}</Text>
-              </TouchableOpacity>
+            <View style={{ flexDirection: 'row', justifyContent: "space-around", marginVertical: 10 }}>
+              <View style={styles.buttonWrapper}>
+                <TouchableOpacity onPress={() => navigation.navigate('kundli')} style={[styles.buttonContainer2, {}]}>
+                  <Image
+                    source={require('../assets/images/sidemenu/3.png')}
+                    style={styles.buttonImage}
+                  />
+                  <Text style={[styles.buttonText2, { marginHorizontal: 20 }]}>{t("kundli")}</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.buttonWrapper}>
+                <TouchableOpacity onPress={() => navigation.navigate('matching')} style={styles.buttonContainer2}>
+                  <Image
+                    source={require('../assets/images/sidemenu/4.png')}
+                    style={styles.buttonImage}
+                  />
+                  <Text style={styles.buttonText2}>{t("love_mertial")}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
+
           </View>
-
-
-
         </View>
         <View style={{
-          // flex: 1,
           width: '100%',
-          paddingLeft:10,
-          // padding: 20,
           alignSelf: 'center',
-          // backgroundColor: colors.background_theme7,
-          // marginTop: 20,
-          height: height * 1,
+          backgroundColor: colors.side_bar_background,
+
+          paddingTop: 20,
+          marginHorizontal: 10,
+          marginVertical: 10,
+          padding: 10
         }}>
-          <TouchableOpacity onPress={() => navigation.navigate('wallet')} style={styles.buttonContainer}>
-            <Image
-              source={require('../assets/images/menu/wallet.png')}
-              style={styles.buttonImage}
-            />
-            <Text style={styles.buttonText}>{t("wallet_balance")}  ₹ {props.props.wallet}</Text>
-          </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('billHistory')} style={styles.buttonContainer}>
             <Image
-              source={require('../assets/images/menu/payment.png')}
+              source={require('../assets/images/sidemenu/payment.png')}
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("payment_bill")}</Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://grahagyana.com/')}
+            style={styles.buttonContainer}>
+            <Image
+              source={require('../assets/images/sidemenu/PaymentBillHistory.png')}
+              style={styles.buttonImage}
+            />
+            <Text style={styles.buttonText}>{t("about_us")}</Text>
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('customerOrderHistory')} style={styles.buttonContainer}>
             <Image
-              source={require('../assets/images/menu/follow.png')}
+              source={require('../assets/images/sidemenu/AboutUs.png')}
+
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("order_history")}</Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity onPress={() => navigation.navigate('customerOrderHistory')} style={styles.buttonContainer}>
+            <Image
+              source={require('../assets/images/sidemenu/OrderHistory.png')}
+
+              style={styles.buttonImage}
+            />
+            <Text style={styles.buttonText}>{t("rate_on_playstore")}</Text>
+          </TouchableOpacity>
+          {/* <TouchableOpacity
             onPress={() => navigation.navigate('customerMallHistory')}
             style={styles.buttonContainer}>
             <Image
-              source={require('../assets/images/menu/follow.png')}
+              source={require('../assets/images/sidemenu/RatePlaystore.png')}
+
               style={styles.buttonImage}
             />
-            <Text style={styles.buttonText}>Astromall Order History</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('following')} style={styles.buttonContainer}>
+            <Text style={styles.buttonText}>{t("announcement_graha_gayan")}</Text>
+          </TouchableOpacity> */}
+          <TouchableOpacity onPress={() => navigation.navigate('astromall')} style={styles.buttonContainer}>
             <Image
-              source={require('../assets/images/menu/follow.png')}
+              source={require('../assets/images/sidemenu/RatePlaystore.png')}
+
               style={styles.buttonImage}
             />
-            <Text style={styles.buttonText}>{t("following")}</Text>
+            <Text style={styles.buttonText}>{t("astromall")}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('howUse')} style={styles.buttonContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('setting')} style={styles.buttonContainer}>
             <Image
-              source={require('../assets/images/menu/app.png')}
+              source={require('../assets/images/sidemenu/Settings.png')}
+
               style={styles.buttonImage}
             />
-            <Text style={styles.buttonText}>{t("How")}</Text>
+            <Text style={styles.buttonText}>{t("setting")}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('askAstrologer')} style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://grahagyana.com/privacy_policy.html')}
+
+            style={styles.buttonContainer}>
             <Image
-              source={require('../assets/images/menu/ask.png')}
+              source={require('../assets/images/sidemenu/PrivacyPolicy.png')}
+
               style={styles.buttonImage}
             />
-            <Text style={styles.buttonText}>{t("What")}</Text>
+            <Text style={styles.buttonText}>{t("privacy_policy")}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('AstrologerSignUp')} style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://grahagyana.com/trems&condition.html')}
+
+            style={styles.buttonContainer}>
+            <Image
+              source={require('../assets/images/sidemenu/PrivacyPolicy.png')}
+
+              style={styles.buttonImage}
+            />
+            <Text style={styles.buttonText}>{t("t_and_c")}</Text>
+          </TouchableOpacity>
+          {/* <TouchableOpacity onPress={() => navigation.navigate('AstrologerSignUp')} style={styles.buttonContainer}>
             <Image
               source={require('../assets/images/menu/astrologer.png')}
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("astrologer_sign")}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={openWhatsApp} style={styles.buttonContainer}>
+          </TouchableOpacity> */}
+          {/* <TouchableOpacity onPress={openWhatsApp} style={styles.buttonContainer}>
             <Image
               source={require('../assets/images/menu/help.png')}
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("help")}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer}>
+          </TouchableOpacity> */}
+          {/* <TouchableOpacity style={styles.buttonContainer}>
             <Image
               source={require('../assets/images/menu/help.png')}
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("rate")}</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           {/* <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('language')}>
             <Image
               source={require('../assets/images/menu/language.png')}
@@ -402,23 +431,23 @@ function CustomDrawerContent(props) {
             />
             <Text style={styles.buttonText}>{t("ln")}</Text>
           </TouchableOpacity> */}
-          <TouchableOpacity style={styles.buttonContainer} onPress={() => share_app()}>
+          {/* <TouchableOpacity style={styles.buttonContainer} onPress={() => share_app()}>
             <Image
               source={require('../assets/images/menu/share.png')}
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("share")}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('setting')} style={styles.buttonContainer}>
+          </TouchableOpacity> */}
+          {/* <TouchableOpacity onPress={() => navigation.navigate('setting')} style={styles.buttonContainer}>
             <Image
               source={require('../assets/images/menu/settings.png')}
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("setting")}</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={logout} style={styles.buttonContainer}>
             <Image
-              source={require('../assets/images/menu/logout.png')}
+              source={require('../assets/images/sidemenu/Logout.png')}
               style={styles.buttonImage}
             />
             <Text style={styles.buttonText}>{t("logout")}</Text>
@@ -454,8 +483,6 @@ const DrawerNavigator = props => {
           alignSelf: 'center',
           backgroundColor: colors.background_theme2,
           elevation: 8,
-          borderTopRightRadius: 40,
-          borderBottomRightRadius: 40,
           shadowColor: colors.black_color6,
         },
       }}>
@@ -480,30 +507,30 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   buttonContainer2: {
-    flex: 0,
     flexDirection: 'row',
     alignItems: 'center',
-    padding:5,
-    margin: 10,
+    justifyContent: "space-around",
+    paddingHorizontal: 10,
+    marginHorizontal: 5,
     backgroundColor: colors.side_bar_background,
     borderRadius: 5
   },
   buttonImage: {
     width: width * 0.06,
     height: width * 0.06,
-    // backgroundColor:'white',
   },
   buttonText: {
     fontSize: getFontSize(1.5),
-    color: colors.white_color,
+    color: colors.black_color,
     fontFamily: fonts.medium,
     marginLeft: 10,
   },
   buttonText2: {
-    fontSize: getFontSize(1.5),
+    fontSize: getFontSize(1.1),
     color: colors.black_color,
     fontFamily: fonts.bold,
-    marginLeft: 10,
+    marginLeft: 5,
+    padding: 10
   },
   socialLogo: {
     width: width * 0.08,
@@ -513,5 +540,10 @@ const styles = StyleSheet.create({
     width: width * 0.1,
     height: height * 0.1,
     resizeMode: 'contain',
-  }
+  },
+  buttonWrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: "space-between"
+  },
 });

@@ -182,6 +182,8 @@ const Login = props => {
   };
 
   const google_login = async() => {
+    console.log("google_login===>>")
+
     try {
       await GoogleSignin.configure({
         androidClientId: '413283853726-stj96hlfhsar4rcbesg38896hprl52gk.apps.googleusercontent.com',
@@ -191,9 +193,8 @@ const Login = props => {
       console.log("HhasPlayService===>>",hasPlayService)
       if (hasPlayService) {
         const userInfo = await GoogleSignin.signIn();
-      console.log("HhasPlayService===>>",userInfo)
+      console.log("userInfo user===>>",userInfo.user)
 
-        console.log(userInfo.user);
         google_register(userInfo.user.name, userInfo.user.email, userInfo.user.givenName, userInfo.user.familyName);
       } else {
         console.log("Google Play Services are not available.");
@@ -209,6 +210,7 @@ const Login = props => {
 
 
   const google_register = async (gname, mail, fname, lname) => {
+    console.log("google_register")
     setIsLoading(true);
     let fcm_token = await messaging().getToken();
     let type = 'google_login';
@@ -225,7 +227,6 @@ const Login = props => {
         } else {
           create_user_firebase_accout(res.data.id, res.data.email);
         }
-
       })
       .catch(err => {
         setIsLoading(false);
