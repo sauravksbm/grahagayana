@@ -51,7 +51,7 @@ const AstrologerDetailes = props => {
   const [walletModalVisible, setWalletModalVisible] = useState(false);
   const [isFollow, setIsfollow] = useState('0');
   const [follower, setFollower] = useState('0');
-
+  console.log("astroData====>>>", astroData)
 
 
   useEffect(() => {
@@ -269,7 +269,7 @@ const AstrologerDetailes = props => {
                     color: colors.white_color,
                     fontFamily: fonts.bold,
                     textTransform: 'uppercase',
-                    marginTop: 10
+                    // marginTop: 10
                   }}>
                   {astroData?.owner_name}
                 </Text>
@@ -278,17 +278,16 @@ const AstrologerDetailes = props => {
                     fontSize: getFontSize(2.6),
                     color: colors.white_color,
                     fontFamily: fonts.light,
-                    textTransform: 'uppercase',
-                    marginTop: 8,
-                    marginBottom: 10
                   }}>
-                  {astroData?.owner_name}
+                  {astroData?.language}
                 </Text>
               </View>
               <View style={{
                 flex: 1,
                 zIndex: 1,
-                marginHorizontal:40
+                marginHorizontal: 40,
+                position: 'relative',
+                top: 60
               }}>
                 <View style={[styles.btn, {
                   shadowColor: '#000',
@@ -323,16 +322,10 @@ const AstrologerDetailes = props => {
                   </View>
                 </View>
               </View>
-
               <View style={{
-                // width: width * 0.8,
-                // borderWidth: 0.4,
                 borderTopLeftRadius: (width * 0.1) * 1,
                 borderTopRightRadius: (width * 0.1) * 1,
-                // height: 100,
                 backgroundColor: colors.white_color,
-                position: "relative",
-                top: -60,
                 paddingTop: 60,
                 paddingLeft: 16
               }}>
@@ -344,106 +337,69 @@ const AstrologerDetailes = props => {
                   }}>
                   {t("consulation_charge")}
                 </Text>
-                <View
-                  style={{
-                    flex: 0,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginVertical: 5,
-                  }}>
-                  <Text
-                    style={{
-                      fontSize: getFontSize(2),
-                      color: colors.black_color,
-                      fontFamily: fonts.medium,
-                      // marginLeft: 5,
-                      marginRight: 5
-                    }}>
-                  Free  {`₹ ${slicedPrice}`}
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: getFontSize(1.5),
-                      color: colors.red_color1,
-                      fontFamily: fonts.medium,
-                      textDecorationLine: 'line-through',
-                    }}>
-                    {`₹ ${astroDetailes?.records[0]?.consultation_price}/min`}
-                  </Text>
 
 
-                  <Image source={require('../../assets/images/offer.png')}
-                    style={{ width: 25, height: 25, resizeMode: 'contain' }} />
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <View
+                    style={{
+                      flex: 0,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      marginVertical: 5,
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: getFontSize(2),
+                        color: colors.black_color,
+                        fontFamily: fonts.medium,
+                        marginRight: 5
+                      }}>
+                      Free  {`₹ ${slicedPrice}`}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: getFontSize(1.5),
+                        color: colors.red_color1,
+                        fontFamily: fonts.medium,
+                        textDecorationLine: 'line-through',
+                      }}>
+                      {`₹ ${astroDetailes?.records[0]?.consultation_price}/min`}
+                    </Text>
+
+
+                    <Image source={require('../../assets/images/offer.png')}
+                      style={{ width: 25, height: 25, resizeMode: 'contain' }} />
+                  </View>
+
+
+                  <View style={{ flexDirection: "column", justifyContent: "flex-start", }}>
+                    <Text
+                      style={{
+                        fontSize: getFontSize(2.6),
+                        color: colors.black_color,
+                        fontFamily: fonts.medium,
+                        fontWeight: 'bold'
+                      }}>
+                      {parseFloat(
+                        astroDetailes?.records[0]?.avg_rating,
+                      ).toPrecision(2)}
+
+                    </Text>
+                    <Rating
+                      readonly={true}
+                      count={5}
+                      imageSize={getFontSize(1.5)}
+                      startingValue={parseFloat(
+                        astroDetailes?.records[0]?.avg_rating,
+                      )}
+                      showRating={false}
+                      selectedColor={'#ff7b00'}
+                      ratingColor={'#ff7b00'}
+                      ratingBackgroundColor={'#ff7b00'}
+                      style={{ paddingHorizontal: 10 }}
+                    />
+                  </View>
                 </View>
-                <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center"}}>
-                <Text
-                  style={{
-                    fontSize: getFontSize(2.6),
-                    color: colors.black_color,
-                    fontFamily: fonts.medium,
-                    fontWeight: 'bold'
-                  }}>
-                  {parseFloat(
-                    astroDetailes?.records[0]?.avg_rating,
-                  ).toPrecision(2)}
-
-                </Text>
-                <Rating
-                  readonly={true}
-                  count={5}
-                  imageSize={getFontSize(1.5)}
-                  startingValue={parseFloat(
-                    astroDetailes?.records[0]?.avg_rating,
-                  )}
-                  showRating={false}
-                  selectedColor={'#ff7b00'}
-                  ratingColor={'#ff7b00'}
-                  ratingBackgroundColor={'#ff7b00'}
-                style={{paddingHorizontal: 10}}
-                />
-                </View>
-
-                {/* <View
-                  style={{
-                    flex: 0,
-                    width: width * 0.25,
-                    height: width * 0.25,
-                    borderRadius: (width * 0.25) / 2,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: colors.background_theme1,
-                    borderWidth: 1,
-                    borderColor: colors.background_theme2,
-                    position: 'relative',
-                    top: 6,
-                    right: 6,
-                  }}>
-                  <Text
-                    style={{
-                      fontSize: getFontSize(1.6),
-                      color: colors.black_color,
-                      fontFamily: fonts.medium,
-                      fontWeight: 'bold'
-                    }}>
-                    {parseFloat(
-                      astroDetailes?.records[0]?.avg_rating,
-                    ).toPrecision(2)}
-
-                  </Text>
-                  <Rating
-                    readonly={true}
-                    count={5}
-                    imageSize={getFontSize(1.5)}
-                    startingValue={parseFloat(
-                      astroDetailes?.records[0]?.avg_rating,
-                    )}
-                    showRating={false}
-                    selectedColor={'#ff7b00'}
-                    ratingColor={'#ff7b00'}
-                    ratingBackgroundColor={'#ff7b00'}
-                  // style={{paddingVertical: 10}}
-                  />
-                </View> */}
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                   <Text
                     style={{
@@ -496,7 +452,7 @@ const AstrologerDetailes = props => {
                 </View>
                 {reviewData &&
                   reviewData.map((item, index) => (
-                     
+
                     <View style={{
                       borderRadius: 16,
                       shadowColor: '#000',
@@ -517,7 +473,7 @@ const AstrologerDetailes = props => {
                       }}>
                         <View
                           key={index}
-                          style={{ flex: 0, flexDirection: 'row', marginBottom: 15 , alignItems:"center" }}>
+                          style={{ flex: 0, flexDirection: 'row', marginBottom: 15, alignItems: "center" }}>
                           <Image
                             source={!item.user_profile_image ? { uri: item.user_profile_image } : require('../../assets/images/logo.png')}
                             style={{
@@ -525,7 +481,7 @@ const AstrologerDetailes = props => {
                               height: width * 0.15,
                               borderWidth: 0.5,
                               borderRadius: 5,
-                              marginLeft:5
+                              marginLeft: 5
                             }}
                           />
 
@@ -545,7 +501,7 @@ const AstrologerDetailes = props => {
                                 color: colors.black_color7,
                                 fontFamily: fonts.medium,
                               }}>
-                            { item.date.split(' ')[0] }
+                              {item.date.split(' ')[0]}
                             </Text>
                             <Rating
                               readonly={true}
@@ -561,13 +517,13 @@ const AstrologerDetailes = props => {
                             />
                           </View>
                           <TouchableOpacity>
-                          <Image
-                            source={require('../../assets/images/3dot.png')}
-                            style={{
-                              height: width * 0.1,
-                              marginRight:15
-                            }}
-                          />
+                            <Image
+                              source={require('../../assets/images/3dot.png')}
+                              style={{
+                                height: width * 0.1,
+                                marginRight: 15
+                              }}
+                            />
                           </TouchableOpacity>
                         </View>
                       </View>
@@ -744,7 +700,7 @@ const AstrologerDetailes = props => {
                 </TouchableOpacity>
               </View> */}
             </View>
-          
+
             <Modal
               isVisible={modalVisible}
               deviceWidth={width}
